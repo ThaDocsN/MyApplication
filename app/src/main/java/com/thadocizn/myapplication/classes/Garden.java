@@ -8,6 +8,7 @@ import com.android.databinding.library.baseAdapters.BR;
 public class Garden extends BaseObservable {
     private String nutrients;
     private String growingMedium;
+    private String harvestWeight;
     private String plantName;
 
     public Garden(String nutrients, String growingMedium, String plantName) {
