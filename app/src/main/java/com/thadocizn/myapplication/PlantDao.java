@@ -1,5 +1,6 @@
 package com.thadocizn.myapplication;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
@@ -16,5 +17,5 @@ public interface PlantDao {
     void deleteAll();
 
     @Query("SELECT * FROM plant_table ORDER BY plantName ASC")
-    List<Plant> getAllPlants();
+    LiveData<List<Plant>> getAllPlants();
 }
