@@ -8,27 +8,19 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.android.databinding.library.baseAdapters.BR;
+import com.thadocizn.myapplication.MyBaseAdapter;
 import com.thadocizn.myapplication.R;
 
 import java.util.List;
 
-public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.MyViewHolder> {
+public class PlantAdapter extends MyBaseAdapter {
 
     private List<Plant> data;
 
-    @NonNull
-    @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.item_list_cardiew, parent, false);
-
-        return new MyViewHolder(binding);
-    }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int position) {
-        final  Plant plant = data.get(position);
-        myViewHolder.bind(plant);
+    public int getLayoutIdForType(int viewType) {
+        return R.layout.item_list_cardiew;
     }
 
     public PlantAdapter(List<Plant> data) {
@@ -36,22 +28,13 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.MyViewHolder
     }
 
     @Override
-    public int getItemCount() {
-        return data.size();
+    public Object getDataAtPosition(int position) {
+        return data.get(position);
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-
-        private final ViewDataBinding binding;
-
-        public MyViewHolder(ViewDataBinding binding) {
-            super(binding.getRoot());
-            this.binding = binding;
-        }
-        public void bind(Object object){
-            binding.setVariable(BR.obj, object);
-            binding.executePendingBindings();
-        }
+    @Override
+    public int getItemCount() {
+        return data.size();
     }
 }
 
