@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 
 import com.android.databinding.library.baseAdapters.BR;
 
+
 @Entity(tableName = "plant_table")
 public class Plant extends BaseObservable {
 
@@ -29,14 +30,25 @@ public class Plant extends BaseObservable {
     @ColumnInfo
     private String plantWaterPh;
 
-    public Plant(String plantName, String plantFloweringTime, String plantCharacteristics, String plantClimate, String plantWaterPh) {
+    public Plant(String plantName, String plantFloweringTime, String plantCharacteristics, String plantClimate, String plantWaterPh, String plantId) {
         this.plantName = plantName;
         this.plantFloweringTime = plantFloweringTime;
         this.plantCharacteristics = plantCharacteristics;
         this.plantClimate = plantClimate;
         this.plantWaterPh = plantWaterPh;
+        this.plantId = plantId;
     }
 
+    @NonNull
+    @Bindable
+    public String getPlantId() {
+        return plantId;
+    }
+
+    public void setPlantId(@NonNull String plantId) {
+        this.plantId = plantId;
+        notifyPropertyChanged(BR.plantId);
+    }
     @Bindable
     public String getPlantName() {
         return plantName;

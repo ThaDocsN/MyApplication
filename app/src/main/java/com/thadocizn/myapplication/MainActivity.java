@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        List<Plant> items = Arrays.asList(new Plant("Charles", "9wks","Tall","Hot","5" ),
-                new Plant("Johnson", "10", "short", "cold", "7"));
+        List<Plant> items = Arrays.asList(new Plant("Charles", "9wks","Tall","Hot","5", "2" ),
+                new Plant("Johnson", "10", "tall", "short", "7", "7"));
         adapter = new PlantAdapter(items);
         recyclerView.setAdapter(adapter);
 
