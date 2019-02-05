@@ -1,15 +1,7 @@
-package com.thadocizn.myapplication.classes;
+package com.thadocizn.myapplication.adapters;
 
-import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-
-import com.android.databinding.library.baseAdapters.BR;
-import com.thadocizn.myapplication.MyBaseAdapter;
 import com.thadocizn.myapplication.R;
+import com.thadocizn.myapplication.classes.Plant;
 
 import java.util.List;
 

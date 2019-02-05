@@ -1,4 +1,4 @@
-package com.thadocizn.myapplication;
+package com.thadocizn.myapplication.adapters;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;

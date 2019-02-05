@@ -16,7 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.thadocizn.myapplication.classes.Plant;
-import com.thadocizn.myapplication.classes.PlantAdapter;
+import com.thadocizn.myapplication.adapters.PlantAdapter;
 
 import java.util.Arrays;
 import java.util.List;
