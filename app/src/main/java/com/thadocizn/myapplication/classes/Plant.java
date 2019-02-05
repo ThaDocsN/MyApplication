@@ -1,21 +1,37 @@
 package com.thadocizn.myapplication.classes;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+import android.support.annotation.NonNull;
 
 import com.android.databinding.library.baseAdapters.BR;
 
+@Entity(tableName = "plant_table")
 public class Plant extends BaseObservable {
 
+    @NonNull
+    @PrimaryKey
+    @ColumnInfo(name = "id")
+    private String plantId;
+    @NonNull
+    @ColumnInfo
     private String plantName;
-    private String plantfloweringTime;
+    @NonNull
+    @ColumnInfo
+    private String plantFloweringTime;
+    @ColumnInfo
     private String plantCharacteristics;
+    @ColumnInfo
     private String plantClimate;
+    @ColumnInfo
     private String plantWaterPh;
 
-    public Plant(String plantName, String plantfloweringTime, String plantCharacteristics, String plantClimate, String plantWaterPh) {
+    public Plant(String plantName, String plantFloweringTime, String plantCharacteristics, String plantClimate, String plantWaterPh) {
         this.plantName = plantName;
-        this.plantfloweringTime = plantfloweringTime;
+        this.plantFloweringTime = plantFloweringTime;
         this.plantCharacteristics = plantCharacteristics;
         this.plantClimate = plantClimate;
         this.plantWaterPh = plantWaterPh;
@@ -32,13 +48,13 @@ public class Plant extends BaseObservable {
 
     }
     @Bindable
-    public String getPlantfloweringTime() {
-        return plantfloweringTime;
+    public String getPlantFloweringTime() {
+        return plantFloweringTime;
     }
 
-    public void setPlantfloweringTime(String plantfloweringTime) {
-        this.plantfloweringTime = plantfloweringTime;
-        notifyPropertyChanged(BR.plantfloweringTime);
+    public void setPlantFloweringTime(String plantFloweringTime) {
+        this.plantFloweringTime = plantFloweringTime;
+        notifyPropertyChanged(BR.plantFloweringTime);
 
     }
     @Bindable
