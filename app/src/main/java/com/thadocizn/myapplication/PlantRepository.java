@@ -19,7 +19,7 @@ public class PlantRepository {
         allPlants = plantDao.getAllPlants();
     }
 
-    LiveData<List<Plant>> getAllPlants(){
+    public LiveData<List<Plant>> getAllPlants(){
         return allPlants;
     }
 
