@@ -11,6 +11,9 @@ import java.util.List;
 @Dao
 public interface PlantDao {
 
+    @Query("SELECT * FROM plant_table LIMIT 1")
+    Plant[] getAnyPlant();
+
     @Insert
     void insert(Plant plant);
 
