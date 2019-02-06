@@ -1,6 +1,9 @@
 package com.thadocizn.myapplication;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
@@ -25,8 +28,10 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private PlantAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
+    private PlantViewModel plantViewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,14 @@ public class MainActivity extends AppCompatActivity
                 new Plant("Johnson", "10", "tall", "short", "7", "7"));
         adapter = new PlantAdapter(items);
         recyclerView.setAdapter(adapter);
+
+        plantViewModel = ViewModelProviders.of(this).get(PlantViewModel.class);
+        plantViewModel.getAllPlants().observe(this, new Observer<List<Plant>>() {
+            @Override
+            public void onChanged(@Nullable List<Plant> plants) {
+                adapter.setData(plants);
+            }
+        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
